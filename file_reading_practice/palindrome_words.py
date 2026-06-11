@@ -51,3 +51,22 @@ Explanation:
 =================================================
 
 """
+def is_palindrome(word):
+    reverse = ""
+
+    for letter in word:
+        reverse = letter + reverse
+
+    return word == reverse
+
+count = 0
+
+with open("sowpods.txt") as file:
+    for word in file:
+        word = word.strip()
+
+        if is_palindrome(word):
+            print(word)
+            count += 1
+
+print("Total palindromes:", count)
